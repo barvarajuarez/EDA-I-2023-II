@@ -32,28 +32,26 @@ int main (){
 
 void alfil(){
     int equis, ye, i, j,k=0;
+    
     printf("El tablero es de 8x8\n");
     printf("\n  Coordenada x:");
     scanf("%i", &equis);
     printf("\n  Coordenada y:");
     scanf("%i", &ye);
 
-    char escitala[x][y];
-    char texto [x*y];
+    int rango[13][2];
+    int tamaño=0;
 
-    printf("Escriba el texto a cifrar: \n");
-    scanf ("%s", texto);
-
-    for (i=0; i<ren; i++)
-        for (j=0; i<col; j++)
-            escitala[i][j] = texto [k++];
-
-    printf("El texto en la tira queda de la siguiente manera:\n");
-    for (i=0; i<col; i++)
-        for (j=0; i<ren; j++)
-            escitala[i][j] = texto [k++];
-                printf("%c", escitala[i][j]);
-    printf("\n");
+    for (i=0; i<=8; i++){
+        for (j=0; i<=8; j++){
+            if (i!=equis && j!=ye && abs(i - equis) == abs (j - ye)){
+                rango[tamaño][0] = i;
+                rango[tamaño][1] = i;
+                tamaño++;
+            }
+        }    
+    }
+    matriz(equis, ye, rango, tamaño);
 }
 
 void torre(){
@@ -64,8 +62,8 @@ void torre(){
     printf("\n  Coordenada y:");
     scanf("%i", &ye);
 
-    char escitala[ren][col];
-    char texto[ren*col];
+    int rango[14][2];
+    int tamaño=0;
 
     printf("Escriba el texto a descifrar:\n");
     scanf("%s", texto);
@@ -77,4 +75,8 @@ void torre(){
     for (i=0 ; i<ren ; i++)
         for (j=0 ; j<col ; j++)
             printf("%c", escitala[i][j]);
+}
+
+void matriz (){
+    printf ("  1 2 3 4 5 6 7 8\n");
 }
