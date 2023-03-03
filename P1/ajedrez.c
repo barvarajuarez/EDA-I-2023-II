@@ -33,9 +33,9 @@ int main (){
 void alfil(){
     int equis, ye, i, j,k=0;
     printf("El tablero es de 8x8\n");
-    printf("\n  Ingresa la coordenada x:");
+    printf("\n  Coordenada x:");
     scanf("%i", &equis);
-    printf("\n  Ingresa la coordenada y:");
+    printf("\n  Coordenada y:");
     scanf("%i", &ye);
 
     char escitala[x][y];
@@ -59,9 +59,9 @@ void alfil(){
 void torre(){
     int equis, ye, i, j, k=0;
      printf("El tablero es de 8x8\n");
-    printf("\n  Ingresa la coordenada x:");
+    printf("\n  Coordenada x:");
     scanf("%i", &equis);
-    printf("\n  Ingresa la coordenada y:");
+    printf("\n  Coordenada y:");
     scanf("%i", &ye);
 
     char escitala[ren][col];
