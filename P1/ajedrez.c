@@ -7,19 +7,19 @@ int main (){
     int opcion=0;
 
     while (1){
-        printf("\n\t--- ESCÍTALA ESPARTANA ---\n");
-        printf("¿Qué desea realizar?\n");
-        printf("1)Crear mensaje cifrado\n");
-        printf("2) Descifrar\n");
+        printf("\n\t---AJEDREZ---\n");
+        printf("¿Qué movimientos desear realizar?\n");
+        printf("1) Alfil\n");
+        printf("2) Torre\n");
         printf("3) Salir\n");
         scanf ("%d", &opcion);
 
         switch (opcion){
             case 1: 
-                crearMensaje();
+                torre();
                 break;
             case 2:
-                descifrarMensaje();
+                alfil();
                 break;
             case 3:
                 return 0;
@@ -30,16 +30,16 @@ int main (){
     return 0;
 }
 
-void crearMensaje(){
-    int ren, col, i, j,k=0;
-    printf("Ingresa el tamaño de escítala: \n");
-    printf("\nRenglones:");
-    scanf("%i", &ren);
-    printf("\nColumnas:");
-    scanf("%i", &col);
+void alfil(){
+    int equis, ye, i, j,k=0;
+    printf("El tablero es de 8x8\n");
+    printf("\n  Ingresa la coordenada x:");
+    scanf("%i", &equis);
+    printf("\n  Ingresa la coordenada y:");
+    scanf("%i", &ye);
 
-    char escitala[ren][col];
-    char texto [ren*col];
+    char escitala[x][y];
+    char texto [x*y];
 
     printf("Escriba el texto a cifrar: \n");
     scanf ("%s", texto);
@@ -56,13 +56,13 @@ void crearMensaje(){
     printf("\n");
 }
 
-void descifrarMensaje(){
-    int ren, col, i, j, k=0;
-    printf("Ingresar el tamaño de la escítala:\n");
-    printf("\nRenglones:");
-    scanf("%i",&ren);
-    printf("\nColumnas:");
-    scanf("%i",&col);
+void torre(){
+    int equis, ye, i, j, k=0;
+     printf("El tablero es de 8x8\n");
+    printf("\n  Ingresa la coordenada x:");
+    scanf("%i", &equis);
+    printf("\n  Ingresa la coordenada y:");
+    scanf("%i", &ye);
 
     char escitala[ren][col];
     char texto[ren*col];
