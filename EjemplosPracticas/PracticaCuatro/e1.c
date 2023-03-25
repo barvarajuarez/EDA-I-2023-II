@@ -1,54 +1,68 @@
 #include <stdio.h>
 #include <stdlib.h>
-int main()
-{
-	int index = 0, i = 0, n,
-		*marks;
 
-	int ans;
-	marks = (int*)malloc(sizeof(
-		int)); 
-	if (marks == NULL) {
-		printf("Memoria no puede ser asignada.");
-	}
-	else {
+// Función para mostrar el menú de opciones 
+int mostrarMenu() {
 
-		printf("Memoria asignada con exito "
-			"usando malloc\n");
-		printf("\n marks = %pc\n",
-			marks); 
+    int *opcion = (int*) malloc (sizeof(int));
+    printf("Menú de opciones:\n");
+    printf("1. Reina\n");
+    printf("2. Rey\n");
+    printf("3. Salir\n");
+    printf("Ingrese su elección: ");
+    scanf("%d", &opcion);
+    int resultado = *opcion;
+    free(opcion);
+    return resultado;
+}
 
-		do {
-			printf("\n Ingresa calificaciones\n");
-			scanf("%d", &marks[index]); 
-			printf("¿Deseas agregar mas?(1/0): ");
-			scanf("%d", &ans);
+// Función para solicitar las coordenadas x y y al usuario
+void solicitarCoordenadas(int *x, int *y) {
+    printf("Ingrese las coordenadas:\n");
+    printf("x = ");
+    scanf("%d", x);
+    printf("y = ");
+    scanf("%d", y);
+}
 
-			if (ans == 1) {
-				index++;
-				marks = (int*)realloc(
-					marks,
-					(index + 1)
-						* sizeof(
-							int)); 
-				if (marks == NULL) {
-					printf("Memoria no puede ser asignada");
-				}
-				else {
-					printf("Memoria asignada con exito "
-						"reasignada usando realloc:\n");
-					printf(
-						"\n la direccion base de las calificaciones son:%pc",
-						marks); 
-				}
-			}
-		} while (ans == 1);
+// Función para imprimir el tablero y la pieza en las coordenadas especificadas
+void imprimirTablero(int x, int y, int rango) {
+    printf("  ");
+    for (int i = 0; i < 8; i++) {
+        printf("%d ", i);
+    }
+    printf("\n");
+    for (int i = 0; i < 8; i++) {
+        printf("%d ", i);
+        for (int j = 0; j < 8; j++) {
+            if (i == x && j == y) {
+                printf("R ");
+            } else if ((abs(i - x) <= rango && j == y) || (abs(j - y) <= rango && i == x) || (abs(i - x) == abs(j - y) && abs(i - x) <= rango)) {
+                printf("* ");
+            } else {
+                printf(". ");
+            }
+        }
+        printf("\n");
+    }
+}
 
-		for (i = 0; i <= index; i++) {
-			printf("calificaciones de los estudiantes %d son: %d\n ", i,
-				marks[i]);
-		}
-		free(marks);
-	}
-	return 0;
+int main() {
+    int opcion;
+    do {
+        opcion = mostrarMenu();
+        if (opcion == 1) {
+            int x, y;
+            solicitarCoordenadas(&x, &y);
+            imprimirTablero(x, y, 7);
+        } else if (opcion == 2) {
+            int x, y;
+            solicitarCoordenadas(&x, &y);
+            imprimirTablero(x, y, 1);
+        } else if (opcion != 3) {
+            printf("Opción inválida\n");
+        }
+    } while (opcion != 3);
+
+    return 0;
 }

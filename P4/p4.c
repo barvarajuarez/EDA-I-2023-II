@@ -3,14 +3,17 @@
 
 // Función para mostrar el menú de opciones 
 int mostrarMenu() {
-    int *opcion;
+
+    int *opcion = (int*) malloc (sizeof(int));
     printf("Menú de opciones:\n");
     printf("1. Reina\n");
     printf("2. Rey\n");
     printf("3. Salir\n");
     printf("Ingrese su elección: ");
     scanf("%d", &opcion);
-    return opcion;
+    int resultado = *opcion;
+    free(opcion);
+    return resultado;
 }
 
 // Función para solicitar las coordenadas x y y al usuario
