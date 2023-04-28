@@ -156,7 +156,7 @@ void deleteNode(struct Node** last, int key) {
         p= last->next;
 
         do {
-            printf ("%d", p->data);
+            printf ("%d ", p->data);
             p=p->next;
         } while (p != last->next);
     }
