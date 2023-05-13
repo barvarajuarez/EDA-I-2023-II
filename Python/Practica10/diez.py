@@ -68,7 +68,7 @@ variable_length(stack="pop, push", queue="enqueue, dequeueu", list="add, delete"
 
 cont=0
 
-def increment ();
+def increment ():
     cont=5
 
 increment()
@@ -77,7 +77,7 @@ print(cont)
 
 cont=0
 
-def increment ();
+def increment ():
     global cont
     cont=5
 
