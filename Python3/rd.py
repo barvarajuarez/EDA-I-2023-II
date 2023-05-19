@@ -10,4 +10,4 @@ if nterms <=0:
 else:
     print("Secuencia fibonacci: ")
     for i in range(nterms):
-        print(recur_fibo(n))
+        print(recur_fibo(i))
